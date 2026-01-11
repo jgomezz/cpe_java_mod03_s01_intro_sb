@@ -3,6 +3,7 @@ package pe.edu.tecsup.app;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,9 +16,9 @@ public class IntroSpringBootApplication  implements CommandLineRunner {
     @Autowired
     private EmailService emailService;
 
+    @Qualifier("whatsAppService")
     @Autowired
     private Message message;
-
 
     private static Logger log = LoggerFactory.getLogger(IntroSpringBootApplication.class);
 
@@ -29,10 +30,10 @@ public class IntroSpringBootApplication  implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         // log.info("Hola mundo desde Spring Boot");
-        emailService.sendEmail("Hola mundo");
+        emailService.sendEmail("Hola Mundo");
 
         //
-        message.send("Hola Munddo");
+        message.send("Hola Mundo");
 
     }
 }
